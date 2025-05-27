@@ -1,10 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 const Aside = () => {
+   
+   const [open,setOpen] = useState(true)
+
   return (
     <>
-      <div className="sidebar" data-background-color="dark">
+      <div className='sidebar' data-background-color="dark">
     <div className="sidebar-logo">
       {/* Logo Header */}
       <div className="logo-header" data-background-color="dark">
@@ -13,7 +16,7 @@ const Aside = () => {
         </a>
         <div className="nav-toggle">
           <button className="btn btn-toggle toggle-sidebar">
-            <i className="gg-menu-right" />
+            <i className="gg-menu-right"/>
           </button>
           <button className="btn btn-toggle sidenav-toggler">
             <i className="gg-menu-left" />
