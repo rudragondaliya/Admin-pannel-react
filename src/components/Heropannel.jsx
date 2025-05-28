@@ -3,7 +3,7 @@ import Header from './Header';
 import { LineChart } from '@mui/x-charts';
 
 
-const Heropannel = () => {
+const Heropannel = ({product}) => {
   return (
     <>
     <div className="main-panel">
@@ -94,8 +94,8 @@ const Heropannel = () => {
                   </div>
                   <div className="col col-stats ms-3 ms-sm-0">
                     <div className="numbers">
-                      <p className="card-category">Sales</p>
-                      <h4 className="card-title">$ 1,345</h4>
+                      <p className="card-category">Stocks</p>
+                      <h4 className="card-title">{}</h4>
                     </div>
                   </div>
                 </div>

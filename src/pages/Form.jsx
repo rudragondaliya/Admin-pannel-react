@@ -1,6 +1,7 @@
+import { error } from 'jquery';
 import React from 'react';
 
-const Form = () => {
+const Form = ({handleChange,handleSubmit,product,godown,editId,error}) => {
   return (
     <>
             <div className="main-panel">
@@ -312,7 +313,8 @@ const Form = () => {
       </div>
       <div className="row">
         <div className="col-md-12">
-          <div className="card">
+          <form action="" method='post' onSubmit={handleSubmit}>
+              <div className="card">
             <div className="card-header">
               <div className="card-title">Form Elements</div>
             </div>
@@ -321,55 +323,115 @@ const Form = () => {
                 <div className="col-md-6 col-lg-4">
                   <div className="form-group">
                     <label htmlFor="name">Product Name:</label>
-                    <input type="email" className="form-control" id="name" placeholder="Enter Product Name" />
+                    <input 
+                    name='product_name'
+                    value={product.product_name || ''}
+                    onChange={handleChange  }
+                    type="text" 
+                    className="form-control" 
+                    id="name" 
+                    placeholder="Enter Product Name" />
+                    {error.product_name && (<span className='text-danger'>{error.product_name}</span>)}
                   </div>
                   <div className="form-group">
                     <label htmlFor="price">Product Price</label>
-                    <input type="Number" className="form-control" id="price" placeholder="Product Price" />
+                    <input 
+                     name='price'
+                    value={product.price || ''}
+                    onChange={handleChange}
+                    type="Number" 
+                    className="form-control" 
+                    id="price" 
+                    placeholder="Product Price" />
+                    {error.price && (<span className='text-danger'>{error.price}</span>)}
                   </div>
 
                     <div className="form-group">
                     <label htmlFor="name">Product Stock:</label>
-                    <input type="email" className="form-control" id="name" placeholder="Enter Stock" />
-                  </div>
-                  
-                  <div className="form-group">
-                    <label htmlFor="exampleFormControlSelect1">Example select</label>
-                    <select className="form-select" id="exampleFormControlSelect1">
-                      <option>1</option>
-                      <option>2</option>
-                      <option>3</option>
-                      <option>4</option>
-                      <option>5</option>
-                    </select>
+                    <input
+                     name='stock'
+                    value={product.stock ||''}
+                    onChange={handleChange} 
+                    type="number" 
+                    className="form-control" 
+                    id="name" 
+                    placeholder="Enter Stock" />
+                    {error.stock && (<span className='text-danger'>{error.stock}</span>)}
                   </div>
                  
-                  <div className="form-group">
-                    <label htmlFor="exampleFormControlFile1">Example file input</label>
-                    <input type="file" className="form-control-file" id="exampleFormControlFile1" />
-                  </div>
+                    <div className="form-group">
+                          <label
+                            htmlFor="exampleFormControlFile1"
+                            className="form-label"
+                          >
+                            Product Images
+                          </label>
+                          <input
+                            type="file"
+                            className="form-control"
+                            id="image"
+                            name="image"
+                            onChange={handleChange}
+                          />
+                          {error.image && (<span className='text-danger'>{error.image}</span>)}
+                        </div>
                   <div className="form-group">
                     <label htmlFor="comment">Comment</label>
-                    <textarea className="form-control" id="comment" rows={5} defaultValue={"                          "} />
+                    <textarea 
+                    name='comment'
+                    value={product.comment || ''}
+                    onChange={handleChange}
+                    className="form-control" 
+                    id="comment" 
+                    rows={5} 
+                     ></textarea>
+                     {error.comment && (<span className='text-danger'>{error.comment}</span>)}
                   </div>
                   <div className="form-check form-check-inline">
-                    <input className="form-check-input" type="checkbox" defaultValue id="flexCheckDefault" />
-                    <label className="form-check-label" htmlFor="flexCheckDefault">
+                    <input 
+                    name='godown'
+                    onChange={handleChange}
+                    className="form-check-input" 
+                    type="checkbox" 
+                    checked={godown.includes("Surat") ? true : false}
+                    id="flexCheckDefault1" 
+                    value="Surat"
+                    />
+                    <label className="form-check-label" htmlFor="flexCheckDefault1">
                       Surat
                     </label>
                   </div>
                   <div className="form-check form-check-inline">
-                    <input className="form-check-input" type="checkbox" defaultValue id="flexCheckDefault" />
-                    <label className="form-check-label" htmlFor="flexCheckDefault">
+                    <input 
+                     name='godown'
+                    onChange={handleChange}
+                    className="form-check-input" 
+                    type="checkbox" 
+                    value="Navsari" 
+                    checked={godown.includes("Navsari") ? true : false}
+                    id="flexCheckDefault2" />
+                    <label className="form-check-label" htmlFor="flexCheckDefault2">
                       Navsari
                     </label>
                   </div>
                   <div className="form-check form-check-inline">
-                    <input className="form-check-input" type="checkbox" defaultValue id="flexCheckDefault" />
-                    <label className="form-check-label" htmlFor="flexCheckDefault">
+                    <input 
+                     name='godown'
+                    onChange={handleChange}
+                    className="form-check-input" 
+                    type="checkbox" 
+                    value="Daman"
+                    checked={godown.includes("Daman")? true : false}
+                    
+                    id="flexCheckDefault3"
+
+                    />
+                    <label className="form-check-label" htmlFor="flexCheckDefault3">
                       Daman
                     </label>
                   </div>
+                   {error.godown && (<span className='text-danger'>{error.godown}</span>)}
+                  
                 </div>
               
                 
@@ -380,6 +442,9 @@ const Form = () => {
               <button className="btn btn-danger">Cancel</button>
             </div>
           </div>
+
+          </form>
+        
         </div>
       </div>
     </div>
