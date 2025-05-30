@@ -2,8 +2,19 @@ import React from 'react';
 import Header from './Header';
 import { LineChart } from '@mui/x-charts';
 
+import user1 from '../assets/jm_denis.jpg'
+import user2 from '../assets/talha.jpg'
+import user3 from '../assets/chadengle.jpg'
+import flag1 from '../assets/id.png'
+import flag2 from '../assets/us.png'
+import flag3 from '../assets/au.png'
+import flag4 from '../assets/ru.png'
+import flag5 from '../assets/cn.png'
+import flag6 from '../assets/br.png'
 
-const Heropannel = ({product}) => {
+
+
+const Heropannel = ({productdata}) => {
   return (
     <>
     <div className="main-panel">
@@ -12,7 +23,7 @@ const Heropannel = ({product}) => {
         {/* Logo Header */}
         <div className="logo-header" data-background-color="dark">
           <a href="index.html" className="logo">
-            <img src="assets/img/kaiadmin/logo_light.svg" alt="navbar brand" className="navbar-brand" height={20} />
+            <img src="" alt="navbar brand" className="navbar-brand" height={40} />
           </a>
           <div className="nav-toggle">
             <button className="btn btn-toggle toggle-sidebar">
@@ -95,7 +106,9 @@ const Heropannel = ({product}) => {
                   <div className="col col-stats ms-3 ms-sm-0">
                     <div className="numbers">
                       <p className="card-category">Stocks</p>
-                      <h4 className="card-title">{}</h4>
+                      <h4 className="card-title"> {productdata.map((val,idx) => (
+                      <span key={idx}>{val.stock}</span>
+                    ))}</h4>
                     </div>
                   </div>
                 </div>
@@ -154,7 +167,7 @@ const Heropannel = ({product}) => {
                     area: true,
                     },
                 ]}
-                height={440}
+                height={515}
                 LineChart/>
                 
                 </div>
@@ -235,14 +248,14 @@ const Heropannel = ({product}) => {
               </div>
               <div className="card-body">
                 <div className="row">
-                  <div className="col-md-6">
+                  <div className="col">
                     <div className="table-responsive table-hover table-sales">
                       <table className="table">
                         <tbody>
                           <tr>
                             <td>
                               <div className="flag">
-                                <img src="assets/img/flags/id.png" alt="indonesia" />
+                                <img src={flag1} alt="indonesia" />
                               </div>
                             </td>
                             <td>Indonesia</td>
@@ -252,7 +265,7 @@ const Heropannel = ({product}) => {
                           <tr>
                             <td>
                               <div className="flag">
-                                <img src="assets/img/flags/us.png" alt="united states" />
+                                <img src={flag2} alt="united states" />
                               </div>
                             </td>
                             <td>USA</td>
@@ -262,7 +275,7 @@ const Heropannel = ({product}) => {
                           <tr>
                             <td>
                               <div className="flag">
-                                <img src="assets/img/flags/au.png" alt="australia" />
+                                <img src={flag3} alt="australia" />
                               </div>
                             </td>
                             <td>Australia</td>
@@ -272,7 +285,7 @@ const Heropannel = ({product}) => {
                           <tr>
                             <td>
                               <div className="flag">
-                                <img src="assets/img/flags/ru.png" alt="russia" />
+                                <img src={flag4} alt="russia" />
                               </div>
                             </td>
                             <td>Russia</td>
@@ -282,7 +295,7 @@ const Heropannel = ({product}) => {
                           <tr>
                             <td>
                               <div className="flag">
-                                <img src="assets/img/flags/cn.png" alt="china" />
+                                <img src={flag5} alt="china" />
                               </div>
                             </td>
                             <td>China</td>
@@ -292,7 +305,7 @@ const Heropannel = ({product}) => {
                           <tr>
                             <td>
                               <div className="flag">
-                                <img src="assets/img/flags/br.png" alt="brazil" />
+                                <img src={flag6} alt="brazil" />
                               </div>
                             </td>
                             <td>Brasil</td>
@@ -303,12 +316,12 @@ const Heropannel = ({product}) => {
                       </table>
                     </div>
                   </div>
-                  <div className="col-md-6">
+                  {/* <div className="col">
                     <div className="mapcontainer">
                       <div id="world-map" className="w-100" style={{height:0}} />
                 
                     </div>
-                  </div>
+                  </div> */}
                 </div>
               </div>
             </div>
@@ -336,7 +349,7 @@ const Heropannel = ({product}) => {
                 <div className="card-list py-4">
                   <div className="item-list">
                     <div className="avatar">
-                      <img src="assets/img/jm_denis.jpg" alt="..." className="avatar-img rounded-circle" />
+                      <img src={user1} alt="..." className="avatar-img rounded-circle" />
                     </div>
                     <div className="info-user ms-3">
                       <div className="username">Jimmy Denis</div>
@@ -366,7 +379,7 @@ const Heropannel = ({product}) => {
                   </div>
                   <div className="item-list">
                     <div className="avatar">
-                      <img src="assets/img/talha.jpg" alt="..." className="avatar-img rounded-circle" />
+                      <img src={user2} alt="..." className="avatar-img rounded-circle" />
                     </div>
                     <div className="info-user ms-3">
                       <div className="username">Talha</div>
@@ -381,7 +394,7 @@ const Heropannel = ({product}) => {
                   </div>
                   <div className="item-list">
                     <div className="avatar">
-                      <img src="assets/img/chadengle.jpg" alt="..." className="avatar-img rounded-circle" />
+                      <img src={user3} alt="..." className="avatar-img rounded-circle" />
                     </div>
                     <div className="info-user ms-3">
                       <div className="username">Chad</div>

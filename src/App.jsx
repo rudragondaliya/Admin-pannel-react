@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import '../src/assets/css/bootstrap.min.css'
 import '../src/assets/css/fonts.min.css'
 import '../src/assets/css/kaiadmin.min.css'
@@ -18,6 +18,7 @@ const App = () => {
   const [godown,setGodown] = useState([]);
   const [editId,setEditId] = useState(null)
   const [error,setError] = useState({})
+  const imageRef = useRef();
 
 
   useEffect(()=>{
@@ -100,6 +101,7 @@ const validation=()=>{
 
     setProduct({})
     setGodown([])
+    imageRef.current.value = '';
 
   }
 
@@ -123,7 +125,9 @@ const validation=()=>{
        <Routes>
 
         <Route path="/" element={<Navigate to="/Home" replace />}></Route>
-        <Route path='/Home' element={<Home/>}></Route>
+        <Route path='/Home' element={<Home 
+        productdata={productdata}
+         />}></Route>
         <Route path="/Form" element={<Form
           handleChange={handleChange}
           handleSubmit={handleSubmit}
@@ -131,6 +135,7 @@ const validation=()=>{
           godown={godown}
           editId={editId}
           error={error}
+          imageRef={imageRef}
         />}></Route>
         <Route path="/Table" element={<Table
          productdata={productdata}

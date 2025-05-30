@@ -2,11 +2,13 @@ import React from 'react';
 import Aside from '../components/Aside';
 import Heropannel from '../components/Heropannel';
 
-const Home = () => {
+const Home = ({productdata}) => {
   return (
     <div>
       <Aside/>
-      <Heropannel/>
+      <Heropannel
+       productdata={productdata}
+       />
     </div>
   );
 }

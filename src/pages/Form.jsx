@@ -1,10 +1,10 @@
 import { error } from 'jquery';
 import React from 'react';
 
-const Form = ({handleChange,handleSubmit,product,godown,editId,error}) => {
+const Form = ({handleChange,handleSubmit,product,godown,editId,error,imageRef}) => {
   return (
     <>
-            <div className="main-panel">
+   <div className="main-panel">
   <div className="main-header">
     <div className="main-header-logo">
       {/* Logo Header */}
@@ -372,6 +372,7 @@ const Form = ({handleChange,handleSubmit,product,godown,editId,error}) => {
                             id="image"
                             name="image"
                             onChange={handleChange}
+                            ref={imageRef}
                           />
                           {error.image && (<span className='text-danger'>{error.image}</span>)}
                         </div>
